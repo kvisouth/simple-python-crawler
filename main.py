@@ -77,10 +77,21 @@ class Crawler:
 				self.urls_to_visit.pop(0)
 
 			print(f"Crawled {len(self.urls_visited)}")
+   
+	# This function will check if the URL is valid
+	def	url_check(url):
+		if re.match(r"https?://[a-z0-9-]+\.[a-z0-9-]+", url):
+			return True
+		else:
+			return False
 
 def main():
 	url = str(input("Enter URL: "))
-	Crawler(max_pages=2000, urls=[url]).run()
+	if Crawler.url_check(url) == False:
+		print("Invalid URL")
+		return
+	else:
+		Crawler(max_pages=2000, urls=[url]).run()
 	
 if __name__ == "__main__":
 	main()
