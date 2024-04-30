@@ -65,4 +65,11 @@ class Crawler:
             print(f"Crawled {len(self.urls_visited)}")
             
 
-Crawler(max_pages=900, urls=["https://www.decathlon.fr/"]).run()
+def main():
+    url = str(input("Enter the URL: "))
+    Crawler(max_pages=2000, urls=[url]).run()
+    # Crawler(max_pages=900, urls=["https://www.decathlon.fr/"]).run()
+    
+
+if __name__ == "__main__":
+    main()
